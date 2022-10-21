@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-sky-900 scroll-smooth">
+    <head>
+        <title>Tarpoon Lagoon Dive Center</title>
+        <!-- import javascript variables and functions -->
+        <script src="app.js" defer></script>
+        <!-- import CSS styles -->
+        <!-- <link rel="stylesheet" href="styles.css" />  -->
+        <!-- STENCIL "STARTER" CODE WAS COPIED FROM THE WEBDEV 3 LAB, AND COMPLETELY MODIFIED. SOME REMNANTS *MIGHT* STILL BE HERE BUT PROBABLY NOT -->
+        <!-- import tailwind for stying -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Allows responsive google chrome site thing to work re: https://stackoverflow.com/questions/46972711/responsive-design-not-working-chrome-dev-tool-but-browser-does -->
+        <!-- NOTE: Max-scale isn't necessary to ^, it is useful for being able to "zoom" as expected on webpage -->
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0,maximum-scale = 1.0"
+        />
+        <!-- Most SVGs/imgs were taken from heroicons or the original website itself -->
+    </head>
+
+    <!-- GENERAL LAYOUT/STYLING TAKEN FROM MY PERSONAS PROJECT -->
+    <!-- page content goes into <body> -->
+    <body class="text-white">
+        <div
+            class="flex flex-row justify-around w-full text-center w-full p-4 font-serif font-bold bg-neutral-900"
+        >
+            <!-- <img
+                src="./clear-tarpoon-lagoon-logo.png"
+                class="w-[50px] h-[50px] lg:w-[100px] lg:h-[100px] p-2"
+            /> -->
+            <div id="title" class="flex items-center">
+                <h1 class="text-3xl lg:text-5xl xl:text-6xl">
+                    Tarpoon Lagoon Dive Center
+                </h1>
+                <!-- <h4 class="pt-2">EST 1952</h4> -->
+            </div>
+            <!-- <img
+                src="./clear-tarpoon-lagoon-logo.png"
+                class="w-[50px] h-[50px] lg:w-[100px] lg:h-[100px] p-2"
+            /> -->
+        </div>
+        <div id="announcement">
+            <div
+                class="flex flex-col justify-around w-full text-center w-full p-2 font-serif bg-sky-600 font-sans"
+            >
+                <h2 class="italic text-xl lg:text-3xl xl:text-4xl font-bold">
+                    Celebrating 70 Years in Business!
+                </h2>
+                <p class="text-xs px-2 font-regular">
+                    Thank you to all our amazing divers, snorkelers, and friends
+                    for your support! Here's to many more years together!
+                </p>
+            </div>
+        </div>
+        <!-- Nav bar adopted and *heavily* modified from tailwind assets -->
+        <nav class="bg-neutral-800 shadow">
+            <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                <div class="relative flex h-16 justify-between">
+                    <div
+                        class="absolute inset-y-0 left-0 flex items-center md:hidden"
+                    >
+                        <!-- Mobile menu button -->
+                        <button
+                            type="button"
+                            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500"
+                            aria-controls="mobile-menu"
+                            aria-expanded="false"
+                        >
+                            <span class="sr-only">Open main menu</span>
+                            <!--
+                  Icon when menu is closed.
+      
+                  Heroicon name: outline/bars-3
+      
+                  Menu open: "hidden", Menu closed: "block"
+                -->
+                            <svg
+                                class="block h-6 w-6"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                                />
+                            </svg>
+                            <!--
+                  Icon when menu is open.
+      
+                  Heroicon name: outline/x-mark
+      
+                  Menu open: "block", Menu closed: "hidden"
+                -->
+                            <svg
+                                class="hidden h-6 w-6"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex flex-1 items-center justify-center">
+                        <div class="flex flex-shrink-0 items-center">
+                            <img
+                                class="block h-8 w-auto lg:hidden"
+                                src="./clear-tarpoon-lagoon-logo.png"
+                                alt="Tarpoon Lagoon Dive Center"
+                            />
+                            <img
+                                class="hidden h-8 w-auto lg:block"
+                                src="./clear-tarpoon-lagoon-logo.png"
+                                alt="Tarpoon Lagoon Dive Center"
+                            />
+                        </div>
+                        <div
+                            class="hidden md:ml-6 md:flex md:space-x-6 text-sm lg:text-lg whitespace-nowrap"
+                        >
+                            <!-- Current: "border-sky-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
+                            <a
+                                href="#"
+                                class="inline-flex items-center border-b-2 border-sky-500 px-1 pt-1 font-medium text-sky-400"
+                                >Home</a
+                            >
+                            <button
+                                class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-500 hover:text-sky-700"
+                                onClick="document.getElementById('quick-links').scrollIntoView();"
+                            >
+                                Quick Links
+                            </button>
+                            <a
+                                href="#"
+                                class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-500 hover:text-sky-700"
+                                >Dive Reservations</a
+                            >
+                            <button
+                                class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-500 hover:text-sky-700"
+                                onClick="document.getElementById('courses').scrollIntoView();"
+                            >
+                                Courses &amp; Certifications
+                            </button>
+                            <div
+                                class="space-x-2 flex items-center justify-center text-gray-500 inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-md font-medium text-gray-500 hover:border-gray-500 hover:text-sky-700"
+                            >
+                                <a href="#" class="">Shop</a>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                                    />
+                                </svg>
+                            </div>
+                            <div
+                                class="flex items-center justify-center text-gray-500 inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-md font-medium text-gray-500 hover:border-gray-500 hover:text-sky-700 w-16"
+                            >
+                                <a href="#" class="">More</a>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="w-6 h-6"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- <div>pad</div> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile menu, show/hide based on menu state. -->
+            <div class="md:hidden" id="mobile-menu">
+                <div class="space-y-1 pt-2 pb-4">
+                    <!-- Current: "bg-sky-50 border-sky-500 text-sky-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
+                    <a
+                        href="#"
+                        class="block border-l-4 border-sky-500 bg-sky-50 py-2 pl-3 pr-4 text-base font-medium text-sky-400"
+                        >Home</a
+                    >
+                    <button
+                        class="block w-full text-left border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                        onClick="document.getElementById('quick-links').scrollIntoView();"
+                    >
+                        Quick Links
+                    </button>
+                    <a
+                        href="#"
+                        class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                        >Dive Reservations</a
+                    >
+                    <button
+                        class="block w-full text-left border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                        onClick="document.getElementById('courses').scrollIntoView();"
+                    >
+                        Courses &amp; Certifications
+                    </button>
+                    <a
+                        href="#"
+                        class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                        >Shop</a
+                    >
+                    <a
+                        href="#"
+                        class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                        >More ...</a
+                    >
+                </div>
+            </div>
+        </nav>
+        <!-- NAV BAR END -->
+
+        <div id="video" class="min-w-full flex justify-center items-center">
+            <!-- Taken from the original site -->
+            <video
+                id="comp-kyeuqud5_video"
+                class="max-w-full lg:max-w-[1000px] xl:max-w-[1500px]"
+                role="presentation"
+                crossorigin="anonymous"
+                playsinline=""
+                preload="auto"
+                muted=""
+                loop=""
+                tabindex="-1"
+                autoplay=""
+                src="https://video.wixstatic.com/video/27a923_0f819e0ef5b4444ab599d640c7e5d7e1/720p/mp4/file.mp4"
+                style="
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: center center;
+                    opacity: 1;
+                "
+            ></video>
+        </div>
+        <div
+            id="advertise-shpeel"
+            class="w-full flex flex-col justify-center p-4 xl:p-8 text-2xl lg:text-3xl xl:text-4xl text-center font-serif font-bold"
+        >
+            <p>
+                Come explore the ocean with Miami's most experienced PADI 5-Star
+                dive center.
+            </p>
+            <p class="p-2 text-md lg:text-xl xl:text-2xl">Est. 1952</p>
+            <!-- TODO: FIX! -->
+            <!-- <svg src="./anchor.svg"></svg> -->
+        </div>
+        <div
+            id="cta-1"
+            class="w-full px-2 mt-3 mb-4 lg:mt-2 lg:mb-20 flex flex-col md:flex-row space-y-3 md:space-y-0 justify-center md:space-x-4 lg:space-x-8 text-xl md:text-3xl lg:text-4xl"
+        >
+            <button
+                type="button"
+                class="font-sans text-center rounded-md border border-transparent bg-sky-100 px-6 py-3 lg:py-6 font-bold text-sky-700 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+            >
+                Make a Reservation
+            </button>
+            <!-- On click, scroll to courses -->
+            <button
+                type="button"
+                class="md:min-w-[322px] lg:min-w-[374.96px] font-sans text-center rounded-md border border-transparent bg-sky-100 px-6 py-3 lg:py-6 font-bold text-sky-700 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+                onClick="document.getElementById('courses').scrollIntoView();"
+            >
+                Get Certified
+            </button>
+        </div>
+
+        <div class="p-8"></div>
+
+        <div class="flex flex-col items-center min-w-full">
+            <div
+                id="quick-links"
+                class="w-full lg:max-w-[1000px] xl:max-w-[1500px] bg-neutral-800 p-6 rounded-md"
+            >
+                <h2
+                    class="p-2 xl:p-4 text-3xl lg:text-4xl xl:text-5xl text-center font-bold"
+                >
+                    Quick Links
+                </h2>
+                <p class="text-center md:text-2xl lg:text-3xl">
+                    You might find these useful if you're in the shop right now!
+                </p>
+                <div class="p-4"></div>
+                <div
+                    class="flex flex-row w-full items-center justify-center space-y-2 md:space-y-0 justify-center md:space-x-4 lg:space-x-8 text-xl md:text-3xl lg:text-4xl"
+                >
+                    <button
+                        type="button"
+                        class="font-sans text-center rounded-md border border-transparent bg-sky-100 px-6 py-3 lg:py-6 font-bold text-sky-700 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+                    >
+                        Sign Boat Waiver
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-16"></div>
+
+        <div class="flex flex-col items-center min-w-full">
+            <div
+                id="shop"
+                class="w-full lg:max-w-[1000px] xl:max-w-[1500px] bg-neutral-800 p-6 rounded-md"
+            >
+                <h2
+                    class="p-2 xl:p-4 text-3xl lg:text-4xl xl:text-5xl text-center font-bold"
+                >
+                    Shop
+                </h2>
+                <p class="text-center md:text-2xl lg:text-3xl">
+                    Want to shop online or see what we have in stock?
+                </p>
+                <div class="p-4"></div>
+                <div
+                    class="flex flex-row w-full items-center justify-center space-y-2 md:space-y-0 justify-center md:space-x-4 lg:space-x-8 text-xl md:text-3xl lg:text-4xl"
+                >
+                    <button
+                        type="button"
+                        class="font-sans text-center rounded-md border border-transparent bg-sky-100 px-6 py-3 lg:py-6 font-bold text-sky-700 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+                    >
+                        Visit Online Shop
+                    </button>
+                </div>
+                <div class="p-4"></div>
+                <div class="flex justify-center items-center">
+                    <p class="text-center text-xl w-3/4">
+                        We are a full service dive shop. We offer air fills,
+                        tank, BCD, and regulator servicing in store. In need of
+                        some new gear? Stop in and let one of our experienced
+                        dive staff help you get properly fitted and find all
+                        your gear needs.
+                    </p>
+                </div>
+                <div class="p-6"></div>
+                <div class="flex justify-center items-center">
+                    <div
+                        id="sponsors"
+                        class="hidden lg:block w-full flex flex-col justify-center items-center bg-neutral-50 p-2 w-3/4 rounded-md"
+                    >
+                        <div
+                            class="flex justify-around items-center justify-center"
+                        >
+                            <img
+                                src="https://static.wixstatic.com/media/27a923_5d74b6635581493aa20cc74ed8ab2b62~mv2.jpg/v1/fill/w_133,h_101,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/27a923_5d74b6635581493aa20cc74ed8ab2b62~mv2.jpg"
+                                alt=""
+                                style="
+                                    width: 100px;
+                                    height: 76px;
+                                    object-fit: cover;
+                                    object-position: 50% 50%;
+                                "
+                            />
+                            <img
+                                src="https://static.wixstatic.com/media/27a923_e1bed09e054a43be96a38cb84d8ab1a0~mv2.png/v1/fill/w_372,h_93,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Shearwater-logo-e1460447277217.png"
+                                alt="Shearwater-logo-e1460447277217.png"
+                                style="
+                                    width: 279px;
+                                    height: 70px;
+                                    object-fit: cover;
+                                    object-position: 50% 50%;
+                                "
+                            />
+                            <img
+                                src="https://static.wixstatic.com/media/27a923_c88235822b00492aa6ed1bae6fa34ec7~mv2.jpg/v1/fill/w_237,h_84,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/27a923_c88235822b00492aa6ed1bae6fa34ec7~mv2.jpg"
+                                alt=""
+                                style="
+                                    width: 178px;
+                                    height: 63px;
+                                    object-fit: cover;
+                                    object-position: 50% 50%;
+                                "
+                            />
+                        </div>
+                        <div class="p-4"></div>
+                        <div class="flex justify-around">
+                            <img
+                                src="https://static.wixstatic.com/media/27a923_550b0d02f8bc427ea385bfb78b848b73~mv2.png/v1/crop/x_38,y_0,w_203,h_179/fill/w_133,h_117,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/27a923_550b0d02f8bc427ea385bfb78b848b73~mv2.png"
+                                alt=""
+                                style="
+                                    width: 100px;
+                                    height: 88px;
+                                    object-fit: cover;
+                                    object-position: 50% 50%;
+                                "
+                            />
+                            <img
+                                src="https://static.wixstatic.com/media/27a923_68b2eb95690348bcb43da7a42856a252~mv2.png/v1/fill/w_256,h_103,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Blue%20Halcyon%20Dive%20Systems%20Logo.png"
+                                alt="Blue Halcyon Dive Systems Logo.png"
+                                style="
+                                    width: 192px;
+                                    height: 77px;
+                                    object-fit: cover;
+                                    object-position: 50% 50%;
+                                "
+                            />
+                            <img
+                                src="https://static.wixstatic.com/media/27a923_525da901880c4d2c991a2b0d87318304~mv2.png/v1/fill/w_245,h_139,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Garmin-logo.png"
+                                alt="Garmin-logo.png"
+                                style="
+                                    width: 184px;
+                                    height: 104px;
+                                    object-fit: cover;
+                                    object-position: 50% 50%;
+                                "
+                            />
+                            <img
+                                src="https://static.wixstatic.com/media/27a923_909dff3869a644fb8fd6c35798dbe9ac~mv2.jpg/v1/fill/w_111,h_111,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/27a923_909dff3869a644fb8fd6c35798dbe9ac~mv2.jpg"
+                                alt=""
+                                style="
+                                    width: 83px;
+                                    height: 83px;
+                                    object-fit: cover;
+                                    object-position: 50% 50%;
+                                "
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-16"></div>
+
+        <div class="flex flex-col items-center min-w-full">
+            <div
+                id="courses"
+                class="w-full lg:max-w-[1000px] xl:max-w-[1500px] bg-neutral-800 p-6 rounded-md"
+            >
+                <h2
+                    class="p-2 xl:p-4 text-3xl lg:text-4xl xl:text-5xl text-center font-bold"
+                >
+                    Courses &amp; Certifications
+                </h2>
+                <div
+                    class="flex flex-col items-center justify-center text-center md:text-xl lg:text-2xl"
+                >
+                    <p class="w-3/4 md:text-2xl lg:text-3xl">
+                        We offer scuba diving for all levels - from beginner all
+                        the way to pro.
+                    </p>
+                    <div class="p-2 lg:p-4"></div>
+                    <p class="w-3/4">
+                        New to diving? Test the waters and try the 1-day
+                        Discover SCUBA Diving experience! Want to get SCUBA
+                        certified? Our 2-day Open Water Course is what you want!
+                    </p>
+                    <div class="p-4"></div>
+                    <div
+                        class="flex flex-col md:flex-row w-full items-center justify-center md:space-x-16 space-y-8 md:space-y-0"
+                    >
+                        <div class="flex flex-col justify-center items-center">
+                            <img
+                                src="https://static.wixstatic.com/media/27a923_11ac5de8880b4da69bb94d5ac247c36c~mv2.jpg/v1/crop/x_67,y_0,w_1079,h_800/fill/w_555,h_405,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/GoPro_print_02.jpg"
+                                alt="Diver hovering over coral"
+                                style="
+                                    width: 416px;
+                                    height: 304px;
+                                    object-fit: cover;
+                                    object-position: 75% 50%;
+                                "
+                            />
+                            <div class="p-2"></div>
+                            <button
+                                type="button"
+                                class="font-sans text-center rounded-md border border-transparent bg-sky-100 px-6 py-3 lg:py-6 font-bold text-sky-700 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+                            >
+                                Discover SCUBA Diving
+                            </button>
+                        </div>
+
+                        <div class="flex flex-col justify-center items-center">
+                            <img
+                                src="https://static.wixstatic.com/media/27a923_1bc6836c7fe042b5a83fd39690dc6014~mv2.jpg/v1/fill/w_540,h_405,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Teaching-1-2.jpg"
+                                alt="Instructor Teaching SCUBA Student"
+                                style="
+                                    width: 405px;
+                                    height: 304px;
+                                    object-fit: cover;
+                                    object-position: 75% 50%;
+                                "
+                            />
+                            <div class="p-2"></div>
+                            <button
+                                type="button"
+                                class="font-sans text-center rounded-md border border-transparent bg-sky-100 px-6 py-3 lg:py-6 font-bold text-sky-700 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+                            >
+                                Get SCUBA Certified
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-8"></div>
+                    <p class="w-3/4">
+                        Already certified and ready for the next level? Gain new
+                        skills through the Advanced Open Water and various
+                        specialty courses.
+                    </p>
+                </div>
+                <div class="p-4"></div>
+                <div
+                    class="flex flex-col w-full items-center justify-center md:space-y-0 justify-center text-xl md:text-3xl lg:text-4xl"
+                >
+                    <div class="flex flex-col md:flex-row md:space-y-0">
+                        <img
+                            src="https://static.wixstatic.com/media/27a923_92074a1cb125498db7596bfe0b095039~mv2.jpg/v1/crop/x_0,y_0,w_1830,h_1354/fill/w_553,h_405,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/17390658_10155876744684838_6904092833784.jpg"
+                            alt="17390658_10155876744684838_6904092833784"
+                            style="
+                                width: 415px;
+                                height: 304px;
+                                object-fit: cover;
+                                object-position: 50% 50%;
+                            "
+                        />
+                        <!-- <img
+                            src="https://static.wixstatic.com/media/27a923_33a068a23b194d7ca3df39f03f51c8bb~mv2.jpg/v1/fill/w_540,h_405,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/27a923_33a068a23b194d7ca3df39f03f51c8bb~mv2.jpg"
+                            alt=""
+                            style="
+                                width: 405px;
+                                height: 304px;
+                                object-fit: cover;
+                                object-position: 50% 50%;
+                            "
+                        /> -->
+                    </div>
+                    <div class="p-2"></div>
+                    <button
+                        type="button"
+                        class="font-sans text-center rounded-md border border-transparent bg-sky-100 px-6 py-3 lg:py-6 font-bold text-sky-700 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+                    >
+                        See All Courses
+                    </button>
+                </div>
+            </div>
+            <div class="p-16"></div>
+            <div class="flex flex-col items-center min-w-full">
+              <div
+                  id="testimonials"
+                  class="w-full lg:max-w-[1000px] xl:max-w-[1500px] bg-neutral-800 p-6 rounded-md"
+              >
+                  <!-- <h2
+                      class="p-2 xl:p-4 text-3xl lg:text-4xl xl:text-5xl text-center font-bold"
+                  >
+                      Quick Links
+                  </h2> -->
+                  <div class="flex flex-col justify-center items-center text-center text-lg md:text-xl lg:text-2xl py-2 space-y-4">
+                  <p class="italic">
+                      "Took my Open Water class here. They were great the whole way though. Great customer service. Swapped out stuff when it misfit during use for my classmate. Made a guy from a landlocked state feel right at home on the boat and 30 ft under water. Look forward to doing more dives with this center!"
+                  </p>
+                  <p>-Kevin</p>
+                  <div class="flex flex-row w-full justify-around items-center w-1/6">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                      <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                    </svg>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+          </div>
+
+            </div>
+            <div class="p-16"></div>
+            <footer class="bg-neutral-900 w-full p-6">
+                <h1 class="text-lg lg:text-2xl xl:text-3xl font-serif">
+                    Tarpoon Lagoon Dive Center
+                </h1>
+                <p class="text-sm lg:text-lg xl:text-xl ">300 Alton Rd, Suite 110, Miami Beach, Florida, 33139</p>
+            </footer>
+        </div>
+    </body>
+</html>
